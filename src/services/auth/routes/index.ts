@@ -1,5 +1,7 @@
 import { Router, Request, Response } from 'express';
 import { registerController } from '../controllers/auth.controller';
+import { verifyOtpController } from '../controllers/otp.controller';
+import { loginController } from '../controllers/login.controller';
 
 const router = Router();
 
@@ -11,9 +13,11 @@ const router = Router();
 router.post('/register', registerController);
 
 
-router.post('/verify-otp', (req: Request, res: Response) => {
-  res.send('Verify OTP');
-});
+router.post('/verify-otp', verifyOtpController);
+
+
+router.post('/login', loginController);
+
 
 router.post('/login', (req: Request, res: Response) => {
   res.send('Login');
