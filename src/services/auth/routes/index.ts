@@ -2,6 +2,7 @@ import { Router, Request, Response } from 'express';
 import { registerController } from '../controllers/auth.controller';
 import { verifyOtpController } from '../controllers/otp.controller';
 import { loginController } from '../controllers/login.controller';
+import { refreshController } from '../controllers/refresh.controller';
 
 const router = Router();
 
@@ -19,13 +20,8 @@ router.post('/verify-otp', verifyOtpController);
 router.post('/login', loginController);
 
 
-router.post('/login', (req: Request, res: Response) => {
-  res.send('Login');
-});
+router.post('/refresh', refreshController);
 
-router.post('/refresh', (req: Request, res: Response) => {
-  res.send('Refresh Token');
-});
 
 router.post('/reset-password', (req: Request, res: Response) => {
   res.send('Reset Password');
